@@ -11,9 +11,13 @@ const AddForm = () => {
   const refContainer = useRef(null);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    newToDo({ content: refContainer.current.value });
-    refContainer.current.value = "";
+    if (!refContainer.current.value === "") {
+      e.preventDefault();
+      newToDo({ content: refContainer.current.value });
+      refContainer.current.value = "";
+    } else {
+      alert("Write your todo!!");
+    }
   };
   return (
     <div>
